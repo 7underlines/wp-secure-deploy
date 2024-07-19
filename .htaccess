@@ -35,3 +35,9 @@ RewriteRule \.(jpg|jpeg|png|gif)$ - [F]
     order allow,deny
     deny from all
 </files>
+
+# Block access to sensitive files and directories
+<filesmatch "^\.git|^\.svn|^\.vscode|^sftp\.json||^sftp-config\.json|^sftp-settings\.json|^\.bashrc|^\.htpasswd">
+    order allow,deny
+    deny from all
+</filesmatch>
