@@ -1,4 +1,4 @@
-<?php // Ignore this line; it's only for syntax highlighting.
+<?php // Ensure this opening PHP tag appears only once in your file
 
 // Disable the ability to edit theme and plugin files from the WordPress dashboard
 define('DISALLOW_FILE_EDIT', true);
