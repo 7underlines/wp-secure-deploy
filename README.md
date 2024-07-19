@@ -9,7 +9,7 @@ Security configs and deployment tips for a secure WordPress setup.
 ## Usage
 
 - Add code from [.htaccess](.htaccess) to your `.htaccess` file.  
-**Note:** to ensure the code is not overwritten by WordPress, place it outside the # BEGIN WordPress and # END WordPress.
+**Note:** to ensure the code is not overwritten by WordPress, place it outside the # BEGIN WordPress and # END WordPress tags.
 
 - Add code from [wp-config.php](wp-config.php) to your `wp-config.php` file.
 
