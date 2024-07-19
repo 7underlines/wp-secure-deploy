@@ -30,12 +30,6 @@ Options -Indexes
     RewriteRule ^wp-includes/[^/]+\.php$ - [F,L]
 </IfModule>
 
-# Prevent image hotlinking
-RewriteEngine on
-RewriteCond %{HTTP_REFERER} !^$
-RewriteCond %{HTTP_REFERER} !^http(s)?://(www\.)?%{HTTP_HOST} [NC]
-RewriteRule \.(jpg|jpeg|png|gif)$ - [F]
-
 # Protect against XML-RPC attacks
 <files xmlrpc.php>
     order allow,deny
