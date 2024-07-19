@@ -23,7 +23,7 @@ Options -Indexes
     RewriteRule ^wp-includes/theme-compat/ - [F,L]
 </IfModule>
 
-# Don't copy this block when using Multisite
+# Don't enable this block when using Multisite
 <IfModule mod_rewrite.c>
     RewriteEngine On
     RewriteBase /
