@@ -1,0 +1,37 @@
+# Secure the .htaccess file itself
+<files .htaccess>
+    order allow,deny
+    deny from all
+</files>
+
+# Protect the wp-config.php file
+<files wp-config.php>
+    order allow,deny
+    deny from all
+</files>
+
+# Disable directory browsing
+Options -Indexes
+
+# Block access to wp-includes
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+    RewriteRule ^wp-admin/includes/ - [F,L]
+    RewriteRule !^wp-includes/ - [S=3]
+    RewriteRule ^wp-includes/[^/]+\.php$ - [F,L]
+    RewriteRule ^wp-includes/js/tinymce/langs/.+\.php - [F,L]
+    RewriteRule ^wp-includes/theme-compat/ - [F,L]
+</IfModule>
+
+# Prevent image hotlinking
+RewriteEngine on
+RewriteCond %{HTTP_REFERER} !^$
+RewriteCond %{HTTP_REFERER} !^http(s)?://(www\.)?%{HTTP_HOST} [NC]
+RewriteRule \.(jpg|jpeg|png|gif)$ - [F]
+
+# Protect against XML-RPC attacks
+<files xmlrpc.php>
+    order allow,deny
+    deny from all
+</files>
