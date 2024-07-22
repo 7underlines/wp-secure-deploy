@@ -19,4 +19,4 @@ Security configs and deployment tips for a secure WordPress setup.
 
 - Use a creative admin user name
 - You should always keep up to date with the latest version of WordPress and plugins/themes
-- Verify the backups are working
+- Verify backups are working
