@@ -1,14 +1,15 @@
-# Secure the .htaccess file itself
-<files .htaccess>
-    order allow,deny
-    deny from all
-</files>
+# BEGIN wp-secure-deploy
+# Disallow access to htaccess, wordpress config and xmlrpc
+<FilesMatch "^(\.htaccess|\.htpasswd|wp-config\.php|xmlrpc\.php)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
 
-# Protect the wp-config.php file
-<files wp-config.php>
-    order allow,deny
-    deny from all
-</files>
+# Protect sensitive files
+<FilesMatch "^(\.bashrc|sftp\.json|sftp-config\.json|sftp-settings\.json|\.deploy\.json)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
 
 # Disable directory browsing
 Options -Indexes
@@ -18,26 +19,11 @@ Options -Indexes
     RewriteEngine On
     RewriteBase /
     RewriteRule ^wp-admin/includes/ - [F,L]
-    RewriteRule !^wp-includes/ - [S=3]
+    RewriteRule !^wp-includes/ - [S=2]
     RewriteRule ^wp-includes/js/tinymce/langs/.+\.php - [F,L]
     RewriteRule ^wp-includes/theme-compat/ - [F,L]
+
+    # Block access to .git, .svn, and .vscode directories
+    RewriteRule \.(git|svn|vscode)(/.*)?$ - [F,NC]
 </IfModule>
-
-# Don't enable this block when using Multisite
-<IfModule mod_rewrite.c>
-    RewriteEngine On
-    RewriteBase /
-    RewriteRule ^wp-includes/[^/]+\.php$ - [F,L]
-</IfModule>
-
-# Protect against XML-RPC attacks
-<files xmlrpc.php>
-    order allow,deny
-    deny from all
-</files>
-
-# Block access to sensitive files and directories
-<filesmatch "^\.git|^\.svn|^\.vscode|^sftp\.json|^sftp-config\.json|^sftp-settings\.json|^\.bashrc|^\.htpasswd">
-    order allow,deny
-    deny from all
-</filesmatch>
+# END wp-secure-deploy
