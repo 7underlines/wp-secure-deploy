@@ -23,7 +23,7 @@ Options -Indexes
     RewriteRule ^wp-includes/js/tinymce/langs/.+\.php - [F,L]
     RewriteRule ^wp-includes/theme-compat/ - [F,L]
 
-    # Block access to .git, .svn, and .vscode directories
-    RewriteRule \.(git|svn|vscode)(/.*)?$ - [F,NC]
+    # Block access dev folders
+    RewriteRule \.(git|svn|vscode|idea)(/.*)?$ - [F,NC]
 </IfModule>
 # END wp-secure-deploy
