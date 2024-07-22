@@ -21,6 +21,6 @@ Security configs and deployment tips for a secure WordPress setup.
 - Verify backups are working
 - Verify Site Health /wp-admin/site-health.php
 
-# Advanced
+## Advanced
 
 - Use a creative admin user name
