@@ -12,6 +12,7 @@ Security configs and deployment tips for a secure WordPress setup.
 All codes should be inserted right at the beginning of the files.
 
 - Add code from [.htaccess](.htaccess) to your `.htaccess` file.  
+- Add code from [.htaccess](.htaccess) to your `wp-content/themes/.htaccess` file (if it doesn't exist, create it).
 - Add code from [wp-config.php](wp-config.php) to your `wp-config.php` file.
 - Add code from [robots.txt](robots.txt) to your `robots.txt` file.
 
