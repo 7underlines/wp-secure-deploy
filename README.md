@@ -22,6 +22,7 @@ All codes should be inserted right at the beginning of the files.
 - Update WordPress and plugins/themes
 - Verify backups are working
 - Verify Site Health /wp-admin/site-health.php
+- Setup WordPress Cron Jobs (One for Each Site in a Multisite)
 
 ## Advanced
 
